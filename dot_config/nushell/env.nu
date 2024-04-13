@@ -4,7 +4,7 @@
 
 $env.STARSHIP_SHELL = "nu"
 
-$env.SHELL = "/home/linuxbrew/.linuxbrew/bin/nu"
+$env.SHELL = "/home/adam/.cargo/bin/nu"
 
 def create_left_prompt [] {
     starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)'
