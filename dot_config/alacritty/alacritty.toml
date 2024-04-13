@@ -1,0 +1,19 @@
+import = ["/home/adam/.config/alacritty/themes/nightfox.toml"]
+
+[font]
+size = 12
+
+[font.normal]
+family = "FiraCode Nerd Font"
+style = "light"
+
+[shell]
+program = "/home/adam/.cargo/bin/nu"
+
+[window]
+dynamic_padding = true
+opacity = 0.99
+
+[window.padding]
+x = 10
+y = 10
