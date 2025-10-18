@@ -9,41 +9,52 @@ auto-format             = true
 auto-save               = true
 text-width              = 120
 end-of-line-diagnostics = "hint"
+rulers                  = [120]
+mouse                   = false
+completion-replace      = true
+popup-border            = true
 
 [editor.inline-diagnostics]
-cursor-line             = "error"
+cursor-line             = "error" 
+other-lines             = "disable"
+
+[editor.statusline]
+left                    = ["mode", "spacer", "spinner", "spacer", "version-control"]
+center                  = ["file-name", "position", "position-percentage", "file-modification-indicator"]
+right                   = ["diagnostics", "selections"]
+mode.normal             = "NORMAL"
+mode.insert             = "INSERT"
+mode.select             = "SELECT"
 
 [editor.cursor-shape]
 insert                  = "bar"
 normal                  = "block"
 select                  = "underline"
 
-[editor.whitespace.render]
-space                   = "all"
-tab                     = "all"
-newline                 = "none"
-
-[editor.indent-guides]
-render                  = true
-
-[editor.soft-wrap]
-enable                  = true
-wrap-at-text-width      = true
-
-[editor.lsp]
-display-inlay-hints     = false
+[editor.file-picker]
+hidden                  = false
 
 [keys.normal]
 "A-,"                   = "goto_previous_buffer"
 "A-."                   = "goto_next_buffer"
-"A-w"                   = ":buffer-close"
-"A-/"                   = "repeat_last_motion"
-"A-x"                   = "extend_to_line_bounds"
-
-"X"                     = ["extend_line_up", "extend_to_line_bounds"]
+A-w                     = ":buffer-close"
+A-y                     = ":clipboard-yank"
+"A-/"                   = "remove_primary_selection"
+A-x                     = "extend_to_line_bounds"
+A-9                     = "rotate_selection_contents_backward"
+A-0                     = "rotate_selection_contents_forward"
+X                       = "select_line_above"
+V                       = ["goto_first_nonwhitespace", "extend_to_line_end"]
+D                       = ["ensure_selections_forward", "extend_to_line_end"]
+A-1                     = ":! echo %{buffer_name} | pbcopy"
+A-2                     = ":! echo %{buffer_name}:%{cursor_line} | pbcopy"
+A-3                     = ":! echo 'asr jest -v file=%{buffer_name}' | pbcopy"
+A-r                     = "repeat_last_motion"
+space.B                 = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
 "C-j"                   = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 "C-k"                   = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 
 [keys.select]
-"A-x"                   = "extend_to_line_bounds"
-"X"                     = ["extend_line_up", "extend_to_line_bounds"]
+A-x = "extend_to_line_bounds"
+X   = "select_line_above"
+V   = "extend_to_line_end"
