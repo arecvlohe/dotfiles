@@ -12,7 +12,7 @@ end-of-line-diagnostics = "hint"
 rulers                  = [120]
 mouse                   = false
 completion-replace      = true
-popup-border            = true
+popup-border            = "all"
 
 [editor.inline-diagnostics]
 cursor-line             = "error" 
