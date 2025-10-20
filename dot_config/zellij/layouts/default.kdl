@@ -14,22 +14,26 @@ layout {
 		}
 	}
 
-	tab name="Editor" focus=true {
+	tab name="editor" focus=true {
 
-		pane name="yazi + helix"
+		pane name="helix"
 
 		floating_panes {
 			pane name="scripts"
 		}
 	}
 
-	tab name="Shell" {
+	tab name="vcs" {
 		
-		pane name="nu"
+		pane name="jj/git"
+
+		floating_panes {
+			pane name="vcs commands"
+		}
 	}
 		
-	tab name="VCS" {
+	tab name="terminal" {
 
-		pane command="gitui"
+		pane name="shell"
 	}
 }
