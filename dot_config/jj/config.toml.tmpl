@@ -1,0 +1,19 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[aliases]
+l = ["log", "-r", "interesting", "--reversed", "--limit", "20"]
+logr = ["log", "--reversed"]
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@"]
+tug- = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+
+[revset-aliases]
+interesting = "interesting(2)"
+"interesting(last_n)" = "@ | ancestors(trunk()..(visible_heads() & mine()), last_n) | trunk()"
+
+[user]
+name = {{ .name | quote }}
+email = {{ .email | quote }}
+
+[ui]
+paginate = "never"
+default-command = "l"
