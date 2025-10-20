@@ -1,20 +1,20 @@
 import = {{ .alacritty.import | quoteList }}
 
 [font]
-size = 16
+size = {{ .alacritty.fontsize }}
 
 [font.normal]
 family = "FiraCode Nerd Font"
 style = "Light"
 
-[shell]
-program = {{ .alacritty.shell | quote }}
+[terminal]
+shell = {{ .alacritty.shell | quote }}
 
 [window]
 dynamic_padding = true
 opacity = 0.99
 {{ if eq .chezmoi.os "darwin" }}
-decorations = "Transparent"
+decorations = "Buttonless"
 option_as_alt = "OnlyLeft"
 {{ end }}
 
