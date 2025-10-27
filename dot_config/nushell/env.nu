@@ -95,17 +95,12 @@ $env.HELIX_RUNTIME = $env.HOME + "/.config/helix/runtime"
 
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/home/linuxbrew/.linuxbrew/bin/brew')
 
-# zoxide init nushell | save -f ~/.zoxide.nu
-
-zoxide init nushell | str replace "def-env" "def --env" --all | save -f ~/.zoxide.nu
-
 if not (which fnm | is-empty) {
   ^fnm env --json | from json | load-env
   let path = if 'Path' in $env { $env.Path } else { $env.PATH }
   let node_path = $"($env.FNM_MULTISHELL_PATH)/bin"
   $env.PATH = ($path | prepend [ $node_path ])
 }
-
 
 ^ssh-agent -c
     | lines
@@ -115,3 +110,4 @@ if not (which fnm | is-empty) {
     | into record
     | load-env
 
+zoxide init nushell | save -f ~/.zoxide.nu

@@ -767,7 +767,7 @@ $env.config = {
     ]
 }
 
-source ~/.zoxide.nu
-
 alias zl = zellij
 alias zlr = zellij run
+
+source ~/.zoxide.nu
