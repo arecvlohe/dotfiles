@@ -4,7 +4,7 @@
 
 $env.STARSHIP_SHELL = "nu"
 
-$env.SHELL = "/home/adam/.cargo/bin/nu"
+$env.SHELL = $env.HOME + "/.cargo/bin/nu"
 
 def create_left_prompt [] {
     starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)'
@@ -12,8 +12,8 @@ def create_left_prompt [] {
 
 # def create_left_prompt [] {
     # mut home = ""
-    # try {
         # if $nu.os-info.name == "windows" {
+    # try {
         #    $home = $env.USERPROFILE
         #} else {
         #    $home = $env.HOME
@@ -86,9 +86,9 @@ $env.NU_PLUGIN_DIRS = [
     # ($nu.default-config-dir | path join 'plugins') # add <nushell-config-dir>/plugins
 ]
 
-$env.EDITOR = /home/adam/.cargo/bin/hx 
+$env.EDITOR = $env.HOME + "/.cargo/bin/hx" 
 
-$env.HELIX_RUNTIME = /home/adam/.config/helix/runtime
+$env.HELIX_RUNTIME = $env.HOME + "/.config/helix/runtime"
 
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
