@@ -136,6 +136,7 @@ export GF_BRANCH_SKIP_REMOTE_BRANCHES="yes"
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#cdcecf,bg:#192330,hl:#5f87af --color=fg+:#cdcecf,bg+:#2b3b51,hl+:#5fd7ff --color=info:#64cccf,prompt:#c94f6d,pointer:#dcc074 --color=marker:#80b29b,spinner:#9d79d6,header:#f7b078'
 
 {{- if eq .chezmoi.hostname "Adam-2FT2RF" }}
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 {{- end }}
 eval "$(starship init zsh)"
