@@ -7,7 +7,6 @@ export PATH=$PATH:$HOME/go/bin
 
 . "$HOME/.cargo/env"
 . "$HOME/.atuin/bin/env"
-. "$HOME/Documents/repos/git-fuzzy"
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -85,7 +84,9 @@ compinit
 
 source $ZSH/oh-my-zsh.sh
 source <(jj util completion zsh)
+{{- if eq .chezmoi.hostname "mac-primary" }}
 source <(fzf --zsh)
+{{- end }}
 
 {{- if eq .chezmoi.hostname "Adam-2FT2RF" }}
 
@@ -138,7 +139,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
+{{- if eq .chezmoi.hostname "mac-primary" }}
 eval "$(fnm env --use-on-cd --shell zsh)"
+{{- end}}
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
