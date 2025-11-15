@@ -2,9 +2,11 @@
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:/opt/homebrew/bin
+export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/go/bin
 
 . "$HOME/.cargo/env"
+. "$HOME/.atuin/bin/env"
 . "$HOME/Documents/repos/git-fuzzy"
 
 # Path to your Oh My Zsh installation.
@@ -76,14 +78,14 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nx-completion)
+plugins=(git)
 
-autoload -U compinit
+autoload -Uz compinit
 compinit
 
 source $ZSH/oh-my-zsh.sh
 source <(jj util completion zsh)
-# source <(fzf --zsh)
+source <(fzf --zsh)
 
 {{- if eq .chezmoi.hostname "Adam-2FT2RF" }}
 
@@ -101,11 +103,11 @@ source <(jj util completion zsh)
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR=~/.cargo/bin/hx
+else
+  export EDITOR=~/.cargo/bin/hx
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
@@ -132,12 +134,11 @@ export EDITOR=~/.cargo/bin/hx
 export GF_BRANCH_SKIP_REMOTE_BRANCHES="yes"
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#cdcecf,bg:#192330,hl:#5f87af --color=fg+:#cdcecf,bg+:#2b3b51,hl+:#5fd7ff --color=info:#64cccf,prompt:#c94f6d,pointer:#dcc074 --color=marker:#80b29b,spinner:#9d79d6,header:#f7b078'
 
-
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
-# eval "$(fnm env --use-on-cd --shell zsh)"
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
