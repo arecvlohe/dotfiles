@@ -48,8 +48,7 @@ V                       = ["goto_first_nonwhitespace", "extend_to_line_end"]
 D                       = ["ensure_selections_forward", "extend_to_line_end"]
 A-1                     = ":! echo %{buffer_name} | pbcopy"
 A-2                     = ":! echo %{buffer_name}:%{cursor_line} | pbcopy"
-A-3                     = ":! echo %{buffer_name}:%{selection_line_start}:%{selection_line_end} | pbcopy"
-A-4                     = ":! echo 'asr jest -v file=%{buffer_name}' | pbcopy"
+A-3                     = ":! echo 'asr jest -v file=%{buffer_name}' | pbcopy"
 A-r                     = "repeat_last_motion"
 space.B                 = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
 "C-j"                   = ["extend_to_line_bounds", "delete_selection", "paste_after"]
@@ -57,5 +56,6 @@ space.B                 = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_nam
 
 [keys.select]
 A-x = "extend_to_line_bounds"
+A-1 = ":! echo %{buffer_name}:%{selection_line_start}:%{selection_line_end} | pbcopy"
 X   = "select_line_above"
 V   = "extend_to_line_end"
