@@ -17,3 +17,10 @@ email = {{ .email | quote }}
 [ui]
 paginate = "never"
 default-command = "l"
+pager = "delta"
+
+[ui.diff]
+format = "git"
+
+[remotes.origin]
+auto-track-bookmarks = "*"
