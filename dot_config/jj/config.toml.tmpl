@@ -14,11 +14,20 @@ interesting = "interesting(2)"
 name = {{ .name | quote }}
 email = {{ .email | quote }}
 
+[diff]
+tool = "delta"
+
 [ui]
 paginate = "never"
 default-command = "l"
-pager = "delta"
 diff-formatter = ":git"
+pager = ["delta", "--pager", "less -FRX"]
 
 [remotes.origin]
 auto-track-bookmarks = "*"
+
+[[--scope]]
+--when.commands = ["diff", "show"]
+
+[--scope.ui]
+pager = "delta"
