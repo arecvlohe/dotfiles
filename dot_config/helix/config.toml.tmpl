@@ -48,9 +48,15 @@ A-0                     = "rotate_selection_contents_forward"
 X                       = "select_line_above"
 V                       = ["goto_first_nonwhitespace", "extend_to_line_end"]
 D                       = ["ensure_selections_forward", "extend_to_line_end"]
+{{ if eq .chezmoi.os "linux" }}
+A-1                     = ":! echo %{buffer_name} | xclip -selection clipboard"
+A-2                     = ":! echo %{buffer_name}:%{cursor_line} | xclip -selection clipboard"
+A-3                     = ":! echo 'asr jest -v file=%{buffer_name}' | xclip -selection clipboard"
+{{ else }}
 A-1                     = ":! echo %{buffer_name} | pbcopy"
 A-2                     = ":! echo %{buffer_name}:%{cursor_line} | pbcopy"
 A-3                     = ":! echo 'asr jest -v file=%{buffer_name}' | pbcopy"
+{{ end }}
 A-r                     = "repeat_last_motion"
 space.B                 = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
 "C-j"                   = ["extend_to_line_bounds", "delete_selection", "paste_after"]
