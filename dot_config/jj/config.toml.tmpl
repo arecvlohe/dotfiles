@@ -31,3 +31,9 @@ auto-track-bookmarks = "*"
 
 [--scope.ui]
 pager = "delta"
+
+fix.tools.prettier.command = ["prettier", "--stdin-filepath=$path"]
+fix.tools.prettier.patterns = ["glob:'**/*.tsx'", "glob:'**/*.ts'", "glob:'**/*.jsx'", "glob:'**/*.js'", "glob:'**/*.css'", "glob:'**/*.html'"]
+
+fix.tools.eslint.command = ["eslint", "--stdin", "--stdin-filename=$path"]
+fix.tools.eslint.patterns = ["glob:'**/*.tsx'", "glob:'**/*.ts'", "glob:'**/*.jsx'", "glob:'**/*.js'"]
