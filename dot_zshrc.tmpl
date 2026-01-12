@@ -163,3 +163,12 @@ export AWS_SDK_LOAD_CONFIG=1
 export NVM_DIR="/Users/adamrecvlohe/.nvm"
 
 {{- end }}
+
+function Resume {
+  fg
+  zle push-input
+  BUFFER=""
+  zle accept-line
+}
+zle -N Resume
+bindkey "^Z" Resume
