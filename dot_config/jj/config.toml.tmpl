@@ -23,6 +23,9 @@ default-command = "l"
 diff-formatter = "delta"
 pager = ["delta", "--pager", "less -FRX"]
 
+[merge-tools]
+delta.diff-expected-exit-codes = [0, 1]
+
 [remotes.origin]
 auto-track-bookmarks = "glob:ar/*"
 
