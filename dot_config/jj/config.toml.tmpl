@@ -1,7 +1,7 @@
 #:schema https://jj-vcs.github.io/jj/latest/config-schema.json
 
 [aliases]
-l = ["log", "-r", "interesting", "--reversed", "--limit", "20"]
+l = ["log", "-r", "interesting", "--limit", "15"]
 logr = ["log", "--reversed"]
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@"]
 tug- = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
@@ -18,7 +18,7 @@ email = {{ .email | quote }}
 tool = "delta"
 
 [ui]
-paginate = "never"
+paginate = "auto"
 default-command = "l"
 diff-formatter = "delta"
 pager = ["delta", "--pager", "less -FRX"]
