@@ -1,7 +1,7 @@
 #:schema https://jj-vcs.github.io/jj/latest/config-schema.json
 
 [aliases]
-l = ["log", "-r", "interesting", "--limit", "15"]
+l = ["log", "-r", "interesting", "--limit", "10"]
 logr = ["log", "--reversed"]
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@"]
 tug- = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
