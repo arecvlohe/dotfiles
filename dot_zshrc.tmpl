@@ -173,6 +173,6 @@ function Resume {
 zle -N Resume
 bindkey "^Z" Resume
 
-{{- if eq .chezmoi.hostname "mac-primary" }}
-source ~/Documents/dev/zsh-helix-mode/zsh-helix-mode.zsh
+{{- if eq .chezmoi.os "linux" }}
+source ~/Documents/development/zsh-helix-mode/zsh-helix-mode.zsh
 {{- end}}
