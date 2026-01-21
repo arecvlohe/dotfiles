@@ -83,16 +83,8 @@ compinit
 
 source $ZSH/oh-my-zsh.sh
 source <(jj util completion zsh)
-{{- if eq .chezmoi.hostname "mac-primary" }}
+{{- if eq .chezmoi.os "darwin" }}
 source <(fzf --zsh)
-{{- end }}
-
-{{- if eq .chezmoi.hostname "Adam-2FT2RF" }}
-
-# work
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
-
 {{- end }}
 
 # User configuration
@@ -141,28 +133,8 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
-{{- if eq .chezmoi.hostname "mac-primary" }}
-eval "$(fnm env --use-on-cd --shell zsh)"
-{{- end}}
-{{- if eq .chezmoi.hostname "Adam-2FT2RF" }}
-eval "$(/opt/homebrew/bin/brew shellenv)"
-{{- end }}
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
-
-{{- if eq .chezmoi.hostname "Adam-2FT2RF" }}
-
-# work
-alias reset-hud="npx nx reset; ./wfdev.sh clean; ./wfdev.sh bootstrap; export NX_DAEMON=false; export NX_DAEMON=true; ./start.sh"
-
-export NODE_OPTIONS=--max-old-space-size=16384
-export AWS_PROFILE="dev-publish-only"
-export AWS_DEFAULT_REGION="us-east-1"
-export AWS_REGION="${AWS_DEFAULT_REGION}"
-export AWS_SDK_LOAD_CONFIG=1
-export NVM_DIR="/Users/adamrecvlohe/.nvm"
-
-{{- end }}
 
 function Resume {
   fg
