@@ -203,6 +203,8 @@ symbol = " "
 [zig]
 symbol = " "
 
+command_timeout = 3000
+
 format = """\
 $cmd_duration 󰜥  $directory ${custom.jj}
 $character"""
