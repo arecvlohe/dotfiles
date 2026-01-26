@@ -135,7 +135,7 @@ eval "$(atuin init zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
 {{- if eq .chezmoi.os "linux" }}
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
-{{-end }}
+{{- end }}
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
