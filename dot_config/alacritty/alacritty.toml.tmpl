@@ -8,6 +8,18 @@ size = {{ .alacritty.fontsize }}
 family = {{ .alacritty.font_family | quote }}
 style = "Light"
 
+[font.bold]
+family = {{ .alacritty.font_family | quote }}
+style = "Bold"
+
+[font.italic]
+family = {{ .alacritty.font_family | quote }}
+style = "Italic"
+
+[font.bold_italic]
+family = {{ .alacritty.font_family | quote }}
+style = "Bold Italic"
+
 [terminal]
 shell = {{ .alacritty.shell | quote }}
 
