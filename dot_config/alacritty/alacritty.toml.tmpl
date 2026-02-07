@@ -5,7 +5,7 @@ import = {{ .alacritty.import | quoteList }}
 size = {{ .alacritty.fontsize }}
 
 [font.normal]
-family = {{ .alacritty.font_family }}
+family = {{ .alacritty.font_family | quote }}
 style = "Light"
 
 [terminal]
