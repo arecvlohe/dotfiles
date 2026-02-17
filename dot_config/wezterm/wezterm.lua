@@ -9,7 +9,7 @@ config.webgpu_force_fallback_adapter = false
 
 config.color_scheme = 'nightfox'
 
-config.font_size = 16
+config.font_size = 18
 config.font_rules = {
   -- Bold not Italic
   { intensity='Bold', italic = false, font = wezterm.font({ family = "MonoLisa Adam", weight = "Bold" }),  },
@@ -28,5 +28,7 @@ config.font_rules = {
 config.treat_left_ctrlalt_as_altgr = true
 
 config.hide_tab_bar_if_only_one_tab = true
+
+config.window_decorations = "RESIZE"
 
 return config
