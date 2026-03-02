@@ -123,6 +123,7 @@ alias asr="atuin scripts run"
 alias ducks="du -cks -- * | sort -rn | head"
 alias config="hx ~/.zshrc"
 alias reload="source ~/.zshrc"
+alias bathelp='bat --plain --language=help'
 
 export HELIX_RUNTIME=~/.config/helix/runtime
 export EDITOR=~/.cargo/bin/hx
@@ -147,8 +148,14 @@ function Resume {
   BUFFER=""
   zle accept-line
 }
+
 zle -N Resume
 bindkey "^Z" Resume
+
+
+function help {
+  "$@" --help 2>&1 | bathelp
+}
 
 {{- if eq .chezmoi.os "linux" }}
 source ~/zsh-helix-mode/zsh-helix-mode.zsh
