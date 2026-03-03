@@ -5,6 +5,7 @@ l = ["log", "-r", "interesting", "--limit", "100"]
 logr = ["log", "--reversed"]
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@"]
 tug- = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+pci = [ "util", "exec", "--", "bash", "-c", "jj diff -r @ --name-only --no-pager | xargs prek run --files"]
 
 [revset-aliases]
 interesting = "interesting(2)"
