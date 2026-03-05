@@ -22,10 +22,7 @@ tool = "delta"
 paginate = "auto"
 default-command = "l"
 diff-formatter = "delta"
-pager = ["delta", "--pager", "less -FRX"]
-
-[ui.streampager]
-interface = "full-screen-clear-output"
+pager = ["delta", "--pager", "less -SFRX"]
 
 [merge-tools]
 delta.diff-expected-exit-codes = [0, 1]
