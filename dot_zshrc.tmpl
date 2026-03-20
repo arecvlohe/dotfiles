@@ -83,9 +83,7 @@ compinit
 
 source $ZSH/oh-my-zsh.sh
 source <(jj util completion zsh)
-{{- if eq .chezmoi.os "darwin" }}
 source <(fzf --zsh)
-{{- end }}
 
 # User configuration
 
@@ -119,7 +117,6 @@ fi
 alias zl="~/.cargo/bin/zellij"
 alias list="exa -lauh --no-user --no-time --group-directories-first --octal-permissions --no-permissions --icons"
 alias new="bonk"
-alias asr="atuin scripts run"
 alias ducks="du -cks -- * | sort -rn | head"
 alias config="hx ~/.zshrc"
 alias reload="source ~/.zshrc"
@@ -135,7 +132,6 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#cdcecf,bg:#192330,hl:#5f8
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-eval "$(atuin init zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
