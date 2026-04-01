@@ -90,9 +90,11 @@ args= ["server"]
 
 [[language]]
 name = "python"
-scope = "source.python"
 auto-format = true
 language-servers = [
-  "ruff",
-  "astral-ty",
+  "pylsp",
 ]
+
+[language-server.pylsp.config.pylsp]
+plugins.pylsp_mypy.enabled = true
+plugins.pylsp_mypy.live_mode = true
